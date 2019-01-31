@@ -7,6 +7,9 @@ const authRoutes = require("./routes/authRoutes");
 
 const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
 
+const app = express();
+const PORT = process.env.PORT || 5000;
+
 require("./models/User");
 require("./services/passport");
 
@@ -14,9 +17,6 @@ mongoose.connect(
   keys.mongoURI,
   { useNewUrlParser: true }
 );
-
-const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(
   cookieSession({
