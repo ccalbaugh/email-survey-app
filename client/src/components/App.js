@@ -6,5 +6,16 @@ import { Landing } from "./Landing";
 import { SurveyNew } from "./SurveyNew";
 
 export const App = () => {
-  return <div>DAAAA APP</div>;
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={Dashboard} />
+          <Route path="/surveys/new" component={SurveyNew} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 };
