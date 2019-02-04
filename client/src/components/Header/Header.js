@@ -1,18 +1,28 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class Header extends Component {
   render() {
-    console.log(this.props.auth);
+    const leftHeaderContent =
+      this.props.auth === null ? (
+        ""
+      ) : this.props.auth ? (
+        <a href="/api/logout">Logout</a>
+      ) : (
+        <a href="/auth/google">Login With Google</a>
+      );
+
     return (
       <nav>
         <div className="nav-wrapper">
-          <a href="/" className="left brand-logo">
+          <Link
+            to={this.props.auth ? "/surveys" : "/"}
+            className="left brand-logo"
+          >
             EmailSurveyApp
-          </a>
+          </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="/auth/google">Login With Google</a>
-            </li>
+            <li>{leftHeaderContent}</li>
           </ul>
         </div>
       </nav>
