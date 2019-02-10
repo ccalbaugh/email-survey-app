@@ -1,17 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Payments } from "../Payments";
 
 export class Header extends Component {
-  render() {
-    const leftHeaderContent =
-      this.props.auth === null ? (
-        ""
-      ) : this.props.auth ? (
-        <a href="/api/logout">Logout</a>
-      ) : (
-        <a href="/auth/google">Login With Google</a>
-      );
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <li>
+            <a href="/auth/google">Login With Google</a>
+          </li>
+        );
+      default:
+        return (
+          <>
+            <li>
+              <Payments />
+            </li>
+            <li>
+              <a href="/api/logout">Logout</a>
+            </li>
+          </>
+        );
+    }
+  }
 
+  render() {
     return (
       <nav>
         <div className="nav-wrapper">
@@ -22,7 +38,7 @@ export class Header extends Component {
             EmailSurveyApp
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>{leftHeaderContent}</li>
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
