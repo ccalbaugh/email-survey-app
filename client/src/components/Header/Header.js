@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Payments } from "../Payments";
+import { PaymentsConnector } from "../PaymentsConnector";
 
 export class Header extends Component {
   renderContent() {
@@ -17,7 +17,7 @@ export class Header extends Component {
         return (
           <>
             <li>
-              <Payments />
+              <PaymentsConnector />
             </li>
             <li>
               <a href="/api/logout">Logout</a>
