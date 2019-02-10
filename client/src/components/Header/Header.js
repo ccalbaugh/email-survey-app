@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { PaymentsConnector } from "../PaymentsConnector";
+import { PaymentsConnector } from "../Payments/PaymentsConnector";
 
 export class Header extends Component {
   renderContent() {
