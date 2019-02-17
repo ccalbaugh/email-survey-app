@@ -14,6 +14,7 @@ class Mailer extends helper.Mail {
 
     this.addContent(this.body);
     this.addClickTracking();
+    this.addRecipients();
   }
 
   formatAddresses(recipients) {
@@ -40,14 +41,19 @@ class Mailer extends helper.Mail {
   }
 
   async send() {
-    const request = this.sgApi.emptyRequest({
-      method: "POST",
-      path: "/v3/mail/sned",
-      body: this.toJSON()
-    });
+    try {
+      const request = this.sgApi.emptyRequest({
+        method: "POST",
+        path: "/v3/mail/send",
+        body: this.toJSON()
+      });
 
-    const response = this.sgApi.API(request);
-    return response;
+      const response = await this.sgApi.API(request);
+
+      return response;
+    } catch (error) {
+      console.log("ERROR: ", error);
+    }
   }
 }
 
