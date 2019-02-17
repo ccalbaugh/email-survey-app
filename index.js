@@ -13,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
@@ -31,6 +32,7 @@ app.use(passport.session());
 
 authRoutes(app);
 billingRoutes(app);
+surveyRoutes(app);
 
 if (process.env.NODE_ENV === "productiom") {
   app.use(express.static("client/build"));
