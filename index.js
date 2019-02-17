@@ -4,8 +4,6 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-const authRoutes = require("./routes/authRoutes");
-const billingRoutes = require("./routes/billingRoutes");
 
 const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
 
@@ -29,6 +27,10 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+const authRoutes = require("./routes/authRoutes");
+const billingRoutes = require("./routes/billingRoutes");
+const surveyRoutes = require("./routes/surveyRoutes");
 
 authRoutes(app);
 billingRoutes(app);
