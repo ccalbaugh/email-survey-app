@@ -9,16 +9,14 @@ import { UserProviderConnector } from "./UserProvider/UserProviderConnector";
 export const App = () => {
   return (
     <UserProviderConnector>
-      <div className="container">
-        <BrowserRouter>
-          <div>
-            <HeaderConnector />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
-            <Route path="/surveys/new" component={SurveyNew} />
-          </div>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <HeaderConnector />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={Dashboard} />
+          <Route path="/surveys/new" component={SurveyNew} />
+        </div>
+      </BrowserRouter>
     </UserProviderConnector>
   );
 };
