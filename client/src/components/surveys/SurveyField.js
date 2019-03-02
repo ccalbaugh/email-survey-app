@@ -1,10 +1,11 @@
 import React from "react";
 import { Field } from "redux-form";
 
-export const SurveyField = () => {
+export const SurveyField = ({ input, label }) => {
   return (
     <div>
-      <input />
+      <label>{label}</label>
+      <input {...input} />
     </div>
   );
 };

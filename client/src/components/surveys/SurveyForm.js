@@ -4,7 +4,34 @@ import { SurveyField } from "./SurveyField";
 
 export class SurveyFormBase extends Component {
   renderFields() {
-    return <Field type="text" title="SurveyField1" component={SurveyField} />;
+    return (
+      <>
+        <Field
+          label="Survey Title"
+          type="text"
+          name="surveyTitle"
+          component={SurveyField}
+        />
+        <Field
+          label="Subject line"
+          type="text"
+          name="subjectLine"
+          component={SurveyField}
+        />
+        <Field
+          label="Email Body"
+          type="text"
+          name="emailBody"
+          component={SurveyField}
+        />
+        <Field
+          label="Recipient List"
+          type="text"
+          name="recipientList"
+          component={SurveyField}
+        />
+      </>
+    );
   }
 
   render() {
